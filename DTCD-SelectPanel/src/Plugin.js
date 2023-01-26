@@ -41,6 +41,10 @@ export class SelectPanel extends PanelPlugin {
     this.#storageSystem = new StorageSystemAdapter('0.9.0');
     this.#dataSourceSystem = new DataSourceSystemAdapter('0.4.0');
 
+    this.#dataSourceSystemGUID = this.getGUID(
+      this.getSystem('DataSourceSystem', '0.4.0')
+    );
+
     this.#eventSystem.registerPluginInstance(this, ['ValueChanged']);
 
     const { default: VueJS } = this.getDependence('Vue');
